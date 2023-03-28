@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h1 class="mb-3">
+        Tabla de usuarios
+    </h1>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre completo</th> <!-- Ojo aqui, nombre COMPLETO-->
+                <th>E-mail</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumno of alumnos; let i=index" [ngClass]="alumno.isTop10?'success':''">
+                <td>{{alumno.id}}</td>
+                <td>{{alumno.firstName}} {{alumno.lastName}}</td>
+                <td>{{alumno.email}}</td>
+                <td>{{alumno.age}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

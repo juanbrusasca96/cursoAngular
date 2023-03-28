@@ -6,6 +6,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
+import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
     ToolbarComponent,
     SidebarComponent,
     HomeComponent,
-    PageWrapperComponent
+    PageWrapperComponent,
+    ListaAlumnosComponent
   ],
   imports: [
     BrowserModule
