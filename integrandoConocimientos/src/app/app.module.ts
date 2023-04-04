@@ -7,6 +7,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
 import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
     SidebarComponent,
     HomeComponent,
     PageWrapperComponent,
-    ListaAlumnosComponent
+    ListaAlumnosComponent,
+    ReactiveFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

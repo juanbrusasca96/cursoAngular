@@ -1,0 +1,45 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm" autocomplete="off" class="row g-3">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input formControlName="email" [formControl]="emailControl" [ngClass]="{ 'is-invalid': mailControlIsInvalid }"
+            type="email" class="form-control" id="inputEmail4">
+        <div *ngIf="mailControl?.hasError('required') && mailControlIsInvalid" class="invalid-feedback">
+            Este campo es requerido.
+        </div>
+        <div *ngIf="mailControl?.hasError('email')" class="invalid-feedback">
+            No es un email valido.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input formControlName="contrasena" [formControl]="passwordControl"
+            [ngClass]="{ 'is-invalid': contrasenaControlIsInvalid }" type="password" class="form-control"
+            id="inputPassword4">
+        <div class="form-text">Mínimo 4 caracteres, maximo de 8.</div>
+        <div *ngIf="contrasenaControl?.hasError('required') && contrasenaControlIsInvalid" class="invalid-feedback">
+            Este campo es requerido.
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Nombre</label>
+        <input formControlName="nombre" [formControl]="nameControl" [ngClass]="{ 'is-invalid': nombreControlIsInvalid }"
+            type="text" class="form-control" id="inputAddress">
+        <div class="form-text">Mínimo 3 caracteres.</div>
+        <div *ngIf="nombreControl?.hasError('required') && nombreControlIsInvalid" class="invalid-feedback">
+            Este campo es requerido.
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="inputAddress2" class="form-label">Apellido</label>
+        <input formControlName="apellido" [formControl]="lastNameControl"
+            [ngClass]="{ 'is-invalid': apellidoControlIsInvalid }" type="text" class="form-control" id="inputAddress2">
+        <div class="form-text">Mínimo 3 caracteres.</div>
+        <div *ngIf="apellidoControl?.hasError('required') && apellidoControlIsInvalid" class="invalid-feedback">
+            Este campo es requerido.
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+</form>
