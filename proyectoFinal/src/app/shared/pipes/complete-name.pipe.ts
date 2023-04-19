@@ -6,8 +6,8 @@ import { Alumno } from 'src/app/models';
 })
 export class CompleteNamePipe implements PipeTransform {
 
-  transform(value: Alumno, ...args: unknown[]): unknown {
-    return `${value.firstName} ${value.lastName}`;
+  transform(value: any, ...args: unknown[]): unknown {
+    return `${value.name} - ${value.username}`;
   }
 
 }
