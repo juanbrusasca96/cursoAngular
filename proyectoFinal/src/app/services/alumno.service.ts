@@ -39,4 +39,10 @@ export class AlumnoService {
     }
     return alumnos.filter(value => value.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
   }
+
+  obtenerAlumnoPorId(id: number): Observable<Alumno | undefined> {
+    return from(this.getData('')).pipe(
+      map((alumnos) => alumnos.find((a) => a.id === id))
+    )
+  }
 }
