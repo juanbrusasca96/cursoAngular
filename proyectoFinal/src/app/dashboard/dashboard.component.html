@@ -1,10 +1,15 @@
 <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p>Auto-resizing sidenav</p>
+    <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+        <!-- <p>Auto-resizing sidenav</p>
         <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
         <button (click)="showFiller = !showFiller" mat-raised-button>
             Toggle extra text
-        </button>
+        </button> -->
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="link.path" *ngFor="let link of links">{{link.title}} <mat-icon
+                    *ngIf="link.icon">{{link.icon}}</mat-icon></a>
+            <a mat-list-item (click)="logout()">Cerrar sesión</a>
+        </mat-nav-list>
     </mat-drawer>
 
     <div class="example-sidenav-content">
@@ -29,8 +34,8 @@
             <!-- <app-cards></app-cards>
             <app-buttons-and-icons></app-buttons-and-icons> -->
             <!-- <app-forms></app-forms> -->
-            <h1 appFontSize [size]="20">Alumnos</h1>
-            <app-tables></app-tables>
+            <!-- <app-tables></app-tables> -->
+            <router-outlet></router-outlet>
         </main>
     </div>
 
