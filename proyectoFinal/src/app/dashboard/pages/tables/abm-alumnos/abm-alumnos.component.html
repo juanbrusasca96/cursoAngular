@@ -19,12 +19,6 @@
             <mat-form-field class="w-full">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput [formControl]="emailControl">
-                <!-- <div *ngIf="mailControl?.hasError('required') && mailControlIsInvalid" class="invalid-feedback">
-                    Este campo es requerido.
-                </div>
-                <div *ngIf="mailControl?.hasError('email')" class="invalid-feedback">
-                    No es un email valido.
-                </div> -->
                 <mat-error *ngIf="mailControl?.hasError('required') && mailControlIsInvalid">Este campo es requerido</mat-error>
                 <mat-error *ngIf="mailControl?.hasError('email')">Email invalido</mat-error>
             </mat-form-field>

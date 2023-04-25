@@ -16,7 +16,6 @@ const routes: Routes = [
     children: [
       {
         path: 'alumnos',
-        // component: TablesComponent,
         children: [
           {
             path: '',
@@ -28,10 +27,6 @@ const routes: Routes = [
           }
         ]
       },
-      // {
-      //   path: 'alumnos/:id',
-      //   component: AlumnoDetalleComponent
-      // },
       {
         path: 'cards',
         component: CardsComponent
@@ -40,10 +35,6 @@ const routes: Routes = [
         path: 'formularios',
         component: FormsComponent
       }
-      // {
-      //   path:'comisiones',
-      //   component: ComisionesComponent
-      // }
     ]
   },
   {

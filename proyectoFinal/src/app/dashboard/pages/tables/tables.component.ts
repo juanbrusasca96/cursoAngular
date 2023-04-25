@@ -40,7 +40,6 @@ export class TablesComponent {
 
   filterData(event: any) {
     const filterString = this.search.toLowerCase();
-    // this.alumnos$ = this.alumnoService.getAlumnos(filterString)
     this.alumnos$.pipe(
       takeUntil(this.destroyed$),
       map((alumnos: Alumno[]) => alumnos)
