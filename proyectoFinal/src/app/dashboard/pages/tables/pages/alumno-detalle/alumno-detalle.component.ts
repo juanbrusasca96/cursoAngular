@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Alumno, AlumnoService } from 'src/app/services/alumno.service';
+import { Alumno, AlumnoService } from 'src/app/core/services/alumno.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

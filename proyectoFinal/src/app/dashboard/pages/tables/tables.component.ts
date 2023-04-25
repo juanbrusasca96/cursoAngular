@@ -3,9 +3,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject, Subscription, debounceTime, from, map, of, takeUntil } from 'rxjs';
-import { ApiServiceService } from 'src/app/services/api-service.service';
+import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { FormControl } from '@angular/forms';
-import { Alumno, AlumnoService } from 'src/app/services/alumno.service';
+import { Alumno, AlumnoService } from 'src/app/core/services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // const alumnos: Alumno[] = [
