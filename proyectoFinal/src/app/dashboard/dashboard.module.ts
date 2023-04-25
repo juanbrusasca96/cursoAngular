@@ -8,10 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { DirectivesModule } from '../shared/directives/directives.module';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list'
-import { CardsModule } from './pages/cards/cards.module';
-import { ButtonsAndIconsModule } from './pages/buttons-and-icons/buttons-and-icons.module';
-import { FormsModule } from './pages/forms/forms.module';
-import { TablesModule } from './pages/tables/tables.module';
+import { AlumnosModule } from './pages/alumnos/alumnos.module';
+import { CursosModule } from './pages/cursos/cursos.module';
 
 
 @NgModule({
@@ -24,13 +22,11 @@ import { TablesModule } from './pages/tables/tables.module';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    CardsModule,
-    ButtonsAndIconsModule,
-    FormsModule,
-    TablesModule,
+    AlumnosModule,
     DirectivesModule,
     RouterModule,
-    MatListModule
+    MatListModule,
+    CursosModule
   ],
   exports: [
     DashboardComponent

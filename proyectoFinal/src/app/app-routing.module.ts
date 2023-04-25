@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TablesComponent } from './dashboard/pages/tables/tables.component';
-import { CardsComponent } from './dashboard/pages/cards/cards.component';
-import { FormsComponent } from './dashboard/pages/forms/forms.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthComponent } from './auth/auth.component';
-import { AlumnoDetalleComponent } from './dashboard/pages/tables/pages/alumno-detalle/alumno-detalle.component';
+import { CursosComponent } from './dashboard/pages/cursos/cursos.component';
+import { AlumnosComponent } from './dashboard/pages/alumnos/alumnos.component';
+import { AlumnoDetalleComponent } from './dashboard/pages/alumnos/pages/alumno-detalle/alumno-detalle.component';
 
 const routes: Routes = [
   {
@@ -19,7 +18,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: TablesComponent
+            component: AlumnosComponent
           },
           {
             path: ':id',
@@ -28,12 +27,8 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'cards',
-        component: CardsComponent
-      },
-      {
-        path: 'formularios',
-        component: FormsComponent
+        path: 'cursos',
+        component: CursosComponent
       }
     ]
   },

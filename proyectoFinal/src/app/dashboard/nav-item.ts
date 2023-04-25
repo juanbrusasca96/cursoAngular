@@ -1,19 +1,20 @@
 
-interface NavItem{
-    path:string,
-    title:string,
-    icon?:string
+interface NavItem {
+    path: string,
+    title: string,
+    icon?: string
 }
 
-const links: NavItem[]=[
+const links: NavItem[] = [
     {
-        path:'alumnos',
-        title:'Alumnos',
-        icon:'person'
+        path: 'alumnos',
+        title: 'Alumnos',
+        icon: 'person'
     },
     {
-        path:'cards',
-        title:'Tarjetas'
+        path: 'cursos',
+        title: 'Cursos',
+        icon: 'school'
     }
 ]
 
