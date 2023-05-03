@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import links from './nav-item';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Usuario } from '../core/models';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,11 +14,13 @@ export class DashboardComponent {
   showFiller = false;
   links = links
 
-  constructor(private router: Router) {
+  authUser$: Observable<Usuario | null>;
 
+  constructor(private router: Router, private authService: AuthService) {
+    this.authUser$ = this.authService.obtenerUsuarioAutenticado()
   }
 
   logout(): void {
-    this.router.navigate(['auth', 'login'])
+    this.authService.logout()
   }
 }

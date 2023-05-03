@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list'
 import { AlumnosModule } from './pages/alumnos/alumnos.module';
 import { CursosModule } from './pages/cursos/cursos.module';
+import { CursosComponent } from './pages/cursos/cursos.component';
+import { AdminGuard } from '../auth/guards/admin.guard';
 
 
 @NgModule({
@@ -24,7 +26,16 @@ import { CursosModule } from './pages/cursos/cursos.module';
     MatButtonModule,
     AlumnosModule,
     DirectivesModule,
-    RouterModule,
+    RouterModule.forChild([
+      {
+        path: 'alumnos',
+        loadChildren: () => import('./pages/alumnos/alumnos.module').then((m) => m.AlumnosModule)
+      },
+      {
+        path: 'cursos',
+        loadChildren: () => import('./pages/cursos/cursos.module').then((m) => m.CursosModule)
+      }
+    ]),
     MatListModule,
     CursosModule
   ],
