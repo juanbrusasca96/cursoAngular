@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AlumnoDetalleComponent } from './pages/alumno-detalle/alumno-detalle.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -31,7 +32,17 @@ import { AlumnoDetalleComponent } from './pages/alumno-detalle/alumno-detalle.co
     MatButtonModule,
     ReactiveFormsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: AlumnosComponent
+      },
+      {
+        path: 'id',
+        component: AlumnoDetalleComponent
+      }
+    ])
   ],
   exports: [
     AlumnosComponent
