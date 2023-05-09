@@ -7,4 +7,5 @@ export interface Usuario {
     role: string;
     email: string;
     token: string;
+    password: string
 }

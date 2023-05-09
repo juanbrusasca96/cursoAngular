@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject, map, catchError, throwError } from 'rxjs';
+import { Observable, BehaviorSubject, map, catchError, throwError, of } from 'rxjs';
 import { Usuario } from 'src/app/core/models';
 import { enviroment } from 'src/enviroments/enviroments';
 
@@ -46,7 +46,7 @@ export class AuthService {
         const usuarioAutenticado = usuarios[0];
         if (usuarioAutenticado) {
           localStorage.setItem('token', usuarioAutenticado.token)
-          this.authUser$.next(usuarioAutenticado);
+          this.establecerUsuarioAutenticado(usuarioAutenticado);
           this.router.navigate(['dashboard']);
         } else {
           alert('¡Usuario y contraseña incorrectos!')
@@ -63,7 +63,7 @@ export class AuthService {
 
   verificarToken(): Observable<boolean> {
     const token = localStorage.getItem('token');
-    
+
     return this.httpClient.get<Usuario[]>(
       `${enviroment.apiBaseUrl}/Usuarios?token=${token}`,
       {
@@ -75,7 +75,7 @@ export class AuthService {
       .pipe(
         map((usuarios) => {
           const usuarioAutenticado = usuarios[0];
-          
+
           if (usuarioAutenticado) {
             localStorage.setItem('token', usuarioAutenticado.token)
             this.authUser$.next(usuarioAutenticado);
@@ -83,9 +83,12 @@ export class AuthService {
           return !!usuarioAutenticado;
         }),
         catchError((err) => {
-          alert('Error al verificar el token');
-          return throwError(() => err);
+          return of(false);
         })
       );
+  }
+
+  private establecerUsuarioAutenticado(usuario: Usuario): void {
+    this.authUser$.next(usuario);
   }
 }
