@@ -3,8 +3,9 @@ import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject, Subscription, map, takeUntil } from 'rxjs';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
-import { Alumno, AlumnoService } from 'src/app/core/services/alumno.service';
+import { AlumnoService } from 'src/app/core/services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Alumno } from 'src/app/core/models/alumno.model';
 
 // const alumnos: Alumno[] = [
 //   new Alumno(1, 'Megumi', 'Fushiguro', 'megumi@gmail.com', 15, true, new Date('1994-01-03')),
