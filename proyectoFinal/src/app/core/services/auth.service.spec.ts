@@ -4,7 +4,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { AuthService, LoginFormValue } from './auth.service';
-import { Usuario } from 'src/app/core/models';
+import { Usuario } from 'src/app/core/models/usuario.models';
 import { Router } from '@angular/router';
 import { skip } from 'rxjs';
 import { enviroment } from 'src/enviroments/enviroments';

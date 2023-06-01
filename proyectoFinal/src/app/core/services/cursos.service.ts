@@ -4,32 +4,32 @@ import { CrearCursoPayload, Curso } from '../models/cursos.model';
 import { HttpClient } from '@angular/common/http';
 import { enviroment } from 'src/enviroments/enviroments';
 
-const CURSOS_MOCKS: Curso[] = [
-  {
-    id: 1,
-    nombre: 'Angular',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date()
-  },
-  {
-    id: 2,
-    nombre: 'Programacion backend',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date()
-  },
-  {
-    id: 3,
-    nombre: 'React JS',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date()
-  },
-  {
-    id: 4,
-    nombre: 'JavaScript',
-    fecha_inicio: new Date(),
-    fecha_fin: new Date()
-  },
-]
+// const CURSOS_MOCKS: Curso[] = [
+//   {
+//     id: 1,
+//     nombre: 'Angular',
+//     fecha_inicio: new Date(),
+//     fecha_fin: new Date()
+//   },
+//   {
+//     id: 2,
+//     nombre: 'Programacion backend',
+//     fecha_inicio: new Date(),
+//     fecha_fin: new Date()
+//   },
+//   {
+//     id: 3,
+//     nombre: 'React JS',
+//     fecha_inicio: new Date(),
+//     fecha_fin: new Date()
+//   },
+//   {
+//     id: 4,
+//     nombre: 'JavaScript',
+//     fecha_inicio: new Date(),
+//     fecha_fin: new Date()
+//   },
+// ]
 
 @Injectable({
   providedIn: 'root'
