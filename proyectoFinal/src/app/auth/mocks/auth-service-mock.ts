@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, of } from "rxjs";
-import { Usuario } from "src/app/core/models";
+import { Usuario } from "src/app/core/models/usuario.models";
 import { LoginFormValue } from "src/app/core/services/auth.service";
 
 export const USUARIO_ADMIN_MOCK: Usuario = {
