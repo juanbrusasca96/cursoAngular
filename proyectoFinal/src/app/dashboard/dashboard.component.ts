@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import links from './nav-item';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Usuario } from '../core/models';
+import { Usuario } from '../core/models/usuario.models';
 import { AuthService } from '../core/services/auth.service';
 
 @Component({

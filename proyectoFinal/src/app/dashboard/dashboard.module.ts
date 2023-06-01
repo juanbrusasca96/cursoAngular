@@ -12,6 +12,7 @@ import { AlumnosModule } from './pages/alumnos/alumnos.module';
 import { CursosModule } from './pages/cursos/cursos.module';
 import { CursosComponent } from './pages/cursos/cursos.component';
 import { AdminGuard } from '../auth/guards/admin.guard';
+import { InscripcionesModule } from './pages/inscripciones/inscripciones.module';
 
 
 @NgModule({
@@ -34,6 +35,10 @@ import { AdminGuard } from '../auth/guards/admin.guard';
       {
         path: 'cursos',
         loadChildren: () => import('./pages/cursos/cursos.module').then((m) => m.CursosModule)
+      },
+      {
+        path:'inscripciones',
+        loadChildren:()=>import('./pages/inscripciones/inscripciones.module').then((m)=>m.InscripcionesModule)
       }
     ]),
     MatListModule,
