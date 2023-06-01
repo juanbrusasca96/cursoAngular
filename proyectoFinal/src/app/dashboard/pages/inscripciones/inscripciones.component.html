@@ -1,0 +1,22 @@
+<h1 appFontSize [size]="20">Cursos</h1>
+
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let inscripcion"> {{inscripcion.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="alumno">
+        <th mat-header-cell *matHeaderCellDef> Nombre</th>
+        <td mat-cell *matCellDef="let inscripcion"> {{inscripcion.alumno.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="esta_inscripto_a">
+        <th mat-header-cell *matHeaderCellDef> Esta inscripto a </th>
+        <td mat-cell *matCellDef="let inscripcion"> {{inscripcion.materia.nombre}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
