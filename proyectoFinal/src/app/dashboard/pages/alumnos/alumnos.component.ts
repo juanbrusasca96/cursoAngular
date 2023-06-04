@@ -70,7 +70,6 @@ export class AlumnosComponent {
       }
     });
     dialog.afterClosed().subscribe((dataDelAlumnoEditado) => {
-      console.log(dataDelAlumnoEditado);
 
       if (dataDelAlumnoEditado) {
         this.dataSource = this.dataSource.map((alumnoActual) => alumnoActual.id === alumnoParaEditar.id ? ({ ...alumnoActual, ...dataDelAlumnoEditado }) : alumnoActual)
