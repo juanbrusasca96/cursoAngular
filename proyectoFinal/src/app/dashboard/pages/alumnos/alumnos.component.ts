@@ -6,15 +6,8 @@ import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { AlumnoService } from 'src/app/core/services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alumno } from 'src/app/core/models/alumno.model';
-
-// const alumnos: Alumno[] = [
-//   new Alumno(1, 'Megumi', 'Fushiguro', 'megumi@gmail.com', 15, true, new Date('1994-01-03')),
-//   new Alumno(2, 'Nobara', 'Kigusaki', 'nobara@gmail.com', 16, true, new Date('1994-01-03')),
-//   new Alumno(3, 'Yuji', 'Itadori', 'yiji@gmail.com', 15, false, new Date('1994-01-03')),
-//   new Alumno(4, 'Toge', 'Inumaki', 'toge@gmail.com', 17, true, new Date('1994-01-03')),
-//   new Alumno(5, 'Panda', '', 'panda@gmail.com', 99999, true, new Date('1994-01-03')),
-//   new Alumno(6, 'Maki', 'Zenin', 'maki@gmail.com', 16, true, new Date('1994-01-03')),
-// ];
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Usuario } from 'src/app/core/models/usuario.models';
 
 @Component({
   selector: 'app-tables',
@@ -23,18 +16,20 @@ import { Alumno } from 'src/app/core/models/alumno.model';
 })
 export class AlumnosComponent {
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'eliminar', 'editar', 'ver_detalle'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'eliminar', 'editar'];
   dataSource: Alumno[] = [];
   alumnos$: Observable<Alumno[]>;
   subscriptionRef: Subscription;
   search: string = '';
   private destroyed$ = new Subject()
+  authUser$: Observable<Usuario | null>;
 
-  constructor(private matDialog: MatDialog, private alumnoService: AlumnoService, private router: Router, private activateRoute: ActivatedRoute) {
+  constructor(private matDialog: MatDialog, private alumnoService: AlumnoService, private router: Router, private activateRoute: ActivatedRoute, private authService: AuthService) {
     this.alumnos$ = this.alumnoService.getAlumnos('')
     this.subscriptionRef = this.alumnoService.getAlumnos('').subscribe((alumnos) => {
       this.dataSource = alumnos
     })
+    this.authUser$ = this.authService.obtenerUsuarioAutenticado()
   }
 
   filterData(event: any) {

@@ -10,7 +10,6 @@ export class AlumnoService {
   private _alumnos$ = new Subject<Alumno[]>
 
   constructor() {
-    // this._alumnos$ = from(this.getData())
   }
 
   getAlumnos(filter: string): Observable<Alumno[]> {

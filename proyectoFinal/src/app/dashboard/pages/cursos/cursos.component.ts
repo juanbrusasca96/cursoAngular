@@ -3,10 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/core/models/cursos.model';
 import { CursosService } from 'src/app/core/services/cursos.service';
-import { AbmCursosComponent } from './components/abm-cursos/abm-cursos.component';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MateriasService } from 'src/app/core/services/materias.service';
 import { Materia } from '../../../core/models/materias.model';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Usuario } from 'src/app/core/models/usuario.models';
 
 @Component({
   selector: 'app-cursos',
@@ -18,12 +19,15 @@ export class CursosComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource()
   materiasArray: Materia[] = []
 
-  displayedColumns = ['id', 'nombre', 'fecha_inicio', 'fecha_fin', 'eliminar', 'editar', 'ver_detalle']
+  displayedColumns = ['id', 'nombre', 'fecha_inicio', 'fecha_fin', 'eliminar']
 
   cursosSubscription: Subscription | null = null;
   materiasSubscription: Subscription | null = null;
+  authUser$: Observable<Usuario | null>;
 
-  constructor(private cursosService: CursosService, private materiasService: MateriasService, private dialog: MatDialog) { }
+  constructor(private cursosService: CursosService, private materiasService: MateriasService, private dialog: MatDialog, private authService: AuthService) {
+    this.authUser$ = this.authService.obtenerUsuarioAutenticado()
+   }
 
   ngOnInit(): void {
     this.materiasSubscription = this.materiasService.obtenerMaterias().subscribe({
@@ -42,31 +46,6 @@ export class CursosComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cursosSubscription?.unsubscribe();
     this.materiasSubscription?.unsubscribe();
-  }
-
-  crearCurso(): void {
-    const dialog = this.dialog.open(AbmCursosComponent);
-    dialog.afterClosed()
-      .subscribe((formValue) => {
-        if (formValue) {
-          this.cursosService.crearCurso(formValue)
-        }
-      });
-  }
-
-  editarCurso(curso: Curso): void {
-    const dialog = this.dialog.open(AbmCursosComponent, {
-      data: {
-        curso,
-      }
-    })
-
-    dialog.afterClosed()
-      .subscribe((formValue) => {
-        if (formValue) {
-          this.cursosService.editarCurso(curso.id, formValue);
-        }
-      })
   }
 
   eliminarCurso(curso: Curso): void {

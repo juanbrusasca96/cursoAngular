@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { AbmCursosComponent } from './components/abm-cursos/abm-cursos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
@@ -17,8 +16,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    CursosComponent,
-    AbmCursosComponent
+    CursosComponent
   ],
   imports: [
     CommonModule,
